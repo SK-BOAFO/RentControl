@@ -1,20 +1,20 @@
 # =====================================
 # STAGE 1: Build & Publish
 # =====================================
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 
 WORKDIR /src
 
-# Copy only the project file first (great for caching NuGet restore)
+# Copy project file first → excellent caching for NuGet restore
 COPY ["RentControlSystem.csproj", "./"]
 
-# Restore dependencies (this layer caches very well)
+# Restore packages (this layer caches beautifully)
 RUN dotnet restore "RentControlSystem.csproj"
 
-# Now copy the entire source code
+# Copy the full source
 COPY . .
 
-# Publish the application (Release, optimized, no host)
+# Publish optimized for production
 RUN dotnet publish "RentControlSystem.csproj" \
     -c Release \
     -o /app/publish \
@@ -24,26 +24,26 @@ RUN dotnet publish "RentControlSystem.csproj" \
     -p:DebugSymbols=false
 
 # =====================================
-# STAGE 2: Runtime (small & secure)
+# STAGE 2: Runtime (small, secure, production-ready)
 # =====================================
-FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 
-# Create non-root user (security best practice)
+# Create non-root user (security best practice on Render)
 RUN adduser --disabled-password --gecos "" appuser
 
 WORKDIR /app
 
-# Copy published output with correct ownership
+# Copy only published files with proper ownership
 COPY --from=build --chown=appuser:appuser /app/publish .
 
 # Run as non-root
 USER appuser
 
-# Render.com requires port 10000 (critical!)
+# Critical for Render: listen on their expected port
 ENV ASPNETCORE_URLS=http://+:10000
 
-# Expose the port Render expects
+# Expose Render's port
 EXPOSE 10000
 
-# Start the application
+# Start the app
 ENTRYPOINT ["dotnet", "RentControlSystem.dll"]
