@@ -1,0 +1,4727 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Rent Control Auth API",
+    "description": "Authentication and Authorization API for Ghana Rent Control System",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/refresh-token": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/logout": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/change-password": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/reset-password-request": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/reset-password": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Cases": {
+      "post": {
+        "tags": [
+          "Cases"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCaseDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCaseDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCaseDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseResponseDtoServiceResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseResponseDtoServiceResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseResponseDtoServiceResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Cases/{id}": {
+      "get": {
+        "tags": [
+          "Cases"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseResponseDtoServiceResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseResponseDtoServiceResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseResponseDtoServiceResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Cases"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCaseDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCaseDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCaseDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseResponseDtoServiceResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseResponseDtoServiceResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseResponseDtoServiceResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Cases/search": {
+      "post": {
+        "tags": [
+          "Cases"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CaseSearchDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CaseSearchDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CaseSearchDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseResponseDtoListPaginatedServiceResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseResponseDtoListPaginatedServiceResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseResponseDtoListPaginatedServiceResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Cases/{id}/submit": {
+      "post": {
+        "tags": [
+          "Cases"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanServiceResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanServiceResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanServiceResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Cases/{id}/assign": {
+      "post": {
+        "tags": [
+          "Cases"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssignCaseDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssignCaseDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssignCaseDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanServiceResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanServiceResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanServiceResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Cases/{id}/hearing": {
+      "post": {
+        "tags": [
+          "Cases"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduleHearingDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduleHearingDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduleHearingDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HearingResponseDtoServiceResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HearingResponseDtoServiceResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HearingResponseDtoServiceResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Cases/statistics": {
+      "get": {
+        "tags": [
+          "Cases"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseStatisticsDtoServiceResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseStatisticsDtoServiceResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseStatisticsDtoServiceResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Cases/calendar": {
+      "get": {
+        "tags": [
+          "Cases"
+        ],
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HearingCalendarDtoServiceResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HearingCalendarDtoServiceResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HearingCalendarDtoServiceResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Cases/dashboard": {
+      "get": {
+        "tags": [
+          "Cases"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseDashboardDtoListServiceResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseDashboardDtoListServiceResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseDashboardDtoListServiceResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Properties": {
+      "post": {
+        "tags": [
+          "Properties"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePropertyDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePropertyDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePropertyDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Properties/{id}": {
+      "get": {
+        "tags": [
+          "Properties"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Properties"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePropertyDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePropertyDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePropertyDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Properties"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Properties/search": {
+      "get": {
+        "tags": [
+          "Properties"
+        ],
+        "parameters": [
+          {
+            "name": "LandlordId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "City",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Region",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PropertyType",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/PropertyType"
+            }
+          },
+          {
+            "name": "PropertyStatus",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/PropertyStatus"
+            }
+          },
+          {
+            "name": "MinRent",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "MaxRent",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "MinBedrooms",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "MaxBedrooms",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "HasParking",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "HasSecurity",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "IsFurnished",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "SearchTerm",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Properties/landlord/{landlordId}": {
+      "get": {
+        "tags": [
+          "Properties"
+        ],
+        "parameters": [
+          {
+            "name": "landlordId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Properties/nearby": {
+      "get": {
+        "tags": [
+          "Properties"
+        ],
+        "parameters": [
+          {
+            "name": "latitude",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "longitude",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "radius",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "default": 5
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Properties/{propertyId}/amenities": {
+      "post": {
+        "tags": [
+          "Properties"
+        ],
+        "parameters": [
+          {
+            "name": "propertyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PropertyAmenityDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PropertyAmenityDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PropertyAmenityDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Properties/amenities/{amenityId}": {
+      "delete": {
+        "tags": [
+          "Properties"
+        ],
+        "parameters": [
+          {
+            "name": "amenityId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Properties/{propertyId}/images": {
+      "post": {
+        "tags": [
+          "Properties"
+        ],
+        "parameters": [
+          {
+            "name": "propertyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "isPrimary": {
+                    "type": "boolean",
+                    "default": false
+                  }
+                }
+              },
+              "encoding": {
+                "file": {
+                  "style": "form"
+                },
+                "description": {
+                  "style": "form"
+                },
+                "isPrimary": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Properties/images/{imageId}": {
+      "delete": {
+        "tags": [
+          "Properties"
+        ],
+        "parameters": [
+          {
+            "name": "imageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Properties/statistics": {
+      "get": {
+        "tags": [
+          "Properties"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Properties/{propertyId}/rent-adjustment": {
+      "post": {
+        "tags": [
+          "Properties"
+        ],
+        "parameters": [
+          {
+            "name": "propertyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateRentAdjustmentDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateRentAdjustmentDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateRentAdjustmentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/RentPayments": {
+      "post": {
+        "tags": [
+          "RentPayments"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateRentPaymentDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateRentPaymentDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateRentPaymentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/RentPayments/{id}": {
+      "get": {
+        "tags": [
+          "RentPayments"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/RentPayments/tenancy/{tenancyId}": {
+      "get": {
+        "tags": [
+          "RentPayments"
+        ],
+        "parameters": [
+          {
+            "name": "tenancyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "fromDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/RentPayments/tenant/{tenantId}": {
+      "get": {
+        "tags": [
+          "RentPayments"
+        ],
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fromDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/RentPayments/landlord/{landlordId}": {
+      "get": {
+        "tags": [
+          "RentPayments"
+        ],
+        "parameters": [
+          {
+            "name": "landlordId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fromDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/RentPayments/{id}/verify": {
+      "post": {
+        "tags": [
+          "RentPayments"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifyPaymentDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifyPaymentDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifyPaymentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/RentPayments/statistics": {
+      "get": {
+        "tags": [
+          "RentPayments"
+        ],
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/RentPayments/overdue": {
+      "get": {
+        "tags": [
+          "RentPayments"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/RentPayments/mobile-money/callback": {
+      "post": {
+        "tags": [
+          "RentPayments"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MobileMoneyCallbackDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MobileMoneyCallbackDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MobileMoneyCallbackDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Tenancy": {
+      "post": {
+        "tags": [
+          "Tenancy"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTenancyDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTenancyDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTenancyDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Tenancy/{id}": {
+      "get": {
+        "tags": [
+          "Tenancy"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Tenancy"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTenancyDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTenancyDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTenancyDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Tenancy/search": {
+      "get": {
+        "tags": [
+          "Tenancy"
+        ],
+        "parameters": [
+          {
+            "name": "LandlordId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "TenantId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PropertyId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Status",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/TenancyStatus"
+            }
+          },
+          {
+            "name": "StartDateFrom",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "StartDateTo",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "EndDateFrom",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "EndDateTo",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "AgreementNumber",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "IsActive",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Tenancy/{id}/terminate": {
+      "post": {
+        "tags": [
+          "Tenancy"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TerminateTenancyDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TerminateTenancyDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TerminateTenancyDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Tenancy/{id}/renew": {
+      "post": {
+        "tags": [
+          "Tenancy"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RenewTenancyDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RenewTenancyDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RenewTenancyDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Tenancy/statistics": {
+      "get": {
+        "tags": [
+          "Tenancy"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Tenancy/tenant/{tenantId}": {
+      "get": {
+        "tags": [
+          "Tenancy"
+        ],
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Tenancy/landlord/{landlordId}": {
+      "get": {
+        "tags": [
+          "Tenancy"
+        ],
+        "parameters": [
+          {
+            "name": "landlordId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Tenancy/{id}/notice": {
+      "post": {
+        "tags": [
+          "Tenancy"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IssueNoticeDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IssueNoticeDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/IssueNoticeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "role",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isActive",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/{id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/search/{searchTerm}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "searchTerm",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/{id}/profile": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProfileDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProfileDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProfileDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/{id}/activate": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/{id}/deactivate": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/{id}/roles": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserRolesDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserRolesDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserRolesDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/me": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/WeatherForecast": {
+      "get": {
+        "tags": [
+          "WeatherForecast"
+        ],
+        "operationId": "GetWeatherForecast",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AssignCaseDto": {
+        "required": [
+          "officerId",
+          "officerName"
+        ],
+        "type": "object",
+        "properties": {
+          "officerId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "officerName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "mediatorId": {
+            "type": "string",
+            "nullable": true
+          },
+          "mediatorName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BooleanServiceResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "type": "boolean"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CaseDashboardDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "caseNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "caseType": {
+            "$ref": "#/components/schemas/CaseType"
+          },
+          "status": {
+            "$ref": "#/components/schemas/CaseStatus"
+          },
+          "priority": {
+            "$ref": "#/components/schemas/CasePriority"
+          },
+          "complainantName": {
+            "type": "string",
+            "nullable": true
+          },
+          "respondentName": {
+            "type": "string",
+            "nullable": true
+          },
+          "assignedOfficerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "nextHearingDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "daysSinceCreation": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "requiresAttention": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CaseDashboardDtoListServiceResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CaseDashboardDto"
+            },
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CaseDocumentDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "caseId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "documentType": {
+            "$ref": "#/components/schemas/DocumentEvidenceType"
+          },
+          "fileName": {
+            "type": "string",
+            "nullable": true
+          },
+          "filePath": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileSize": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "uploadedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "uploadedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "isVerified": {
+            "type": "boolean"
+          },
+          "verificationNotes": {
+            "type": "string",
+            "nullable": true
+          },
+          "verifiedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "verifiedBy": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CaseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "caseNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "caseType": {
+            "$ref": "#/components/schemas/CaseType"
+          },
+          "status": {
+            "$ref": "#/components/schemas/CaseStatus"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CaseNoteDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "caseId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdByName": {
+            "type": "string",
+            "nullable": true
+          },
+          "isInternal": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updatedBy": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CaseParticipantDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "caseId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "participantId": {
+            "type": "string",
+            "nullable": true
+          },
+          "participantName": {
+            "type": "string",
+            "nullable": true
+          },
+          "participantEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "participantPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "participantType": {
+            "$ref": "#/components/schemas/ParticipantType"
+          },
+          "role": {
+            "type": "string",
+            "nullable": true
+          },
+          "organization": {
+            "type": "string",
+            "nullable": true
+          },
+          "isPrimaryContact": {
+            "type": "boolean"
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          },
+          "addedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "addedBy": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CasePriority": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "CaseResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "caseNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "caseType": {
+            "$ref": "#/components/schemas/CaseType"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "complainantId": {
+            "type": "string",
+            "nullable": true
+          },
+          "complainantName": {
+            "type": "string",
+            "nullable": true
+          },
+          "complainantPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "complainantEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "respondentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "respondentName": {
+            "type": "string",
+            "nullable": true
+          },
+          "respondentPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "respondentEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "propertyId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "tenancyAgreementId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "propertyAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/CaseStatus"
+          },
+          "priority": {
+            "$ref": "#/components/schemas/CasePriority"
+          },
+          "incidentDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "resolutionDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "claimAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "awardedAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "resolution": {
+            "$ref": "#/components/schemas/ResolutionType"
+          },
+          "resolutionDetails": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "assignedOfficerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "assignedOfficerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "assignedMediatorId": {
+            "type": "string",
+            "nullable": true
+          },
+          "assignedMediatorName": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "submittedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "closedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "documentCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hearingCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "noteCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "communicationCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "property": {
+            "$ref": "#/components/schemas/PropertyDto"
+          },
+          "tenancyAgreement": {
+            "$ref": "#/components/schemas/TenancyAgreementDto"
+          },
+          "documents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CaseDocumentDto"
+            },
+            "nullable": true
+          },
+          "hearings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateHearingDto"
+            },
+            "nullable": true
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CaseNoteDto"
+            },
+            "nullable": true
+          },
+          "participants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CaseParticipantDto"
+            },
+            "nullable": true
+          },
+          "updates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CaseUpdateDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CaseResponseDtoListPaginatedServiceResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CaseResponseDto"
+            },
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "currentPage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CaseResponseDtoServiceResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/CaseResponseDto"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CaseSearchDto": {
+        "type": "object",
+        "properties": {
+          "caseNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "caseType": {
+            "$ref": "#/components/schemas/CaseType"
+          },
+          "status": {
+            "$ref": "#/components/schemas/CaseStatus"
+          },
+          "priority": {
+            "$ref": "#/components/schemas/CasePriority"
+          },
+          "complainantId": {
+            "type": "string",
+            "nullable": true
+          },
+          "respondentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "complainantName": {
+            "type": "string",
+            "nullable": true
+          },
+          "respondentName": {
+            "type": "string",
+            "nullable": true
+          },
+          "propertyId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "tenancyAgreementId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "assignedOfficerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "assignedMediatorId": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createdTo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "incidentDateFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "incidentDateTo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CaseStatisticsDto": {
+        "type": "object",
+        "properties": {
+          "totalCases": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "draftCases": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "submittedCases": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "underReviewCases": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "investigationCases": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hearingScheduledCases": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "resolvedCases": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "closedCases": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "reopenedCases": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "withdrawnCases": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dismissedCases": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "casesByType": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CaseTypeCountDto"
+            },
+            "nullable": true
+          },
+          "casesByPriority": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PriorityCountDto"
+            },
+            "nullable": true
+          },
+          "casesByMonth": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MonthCountDto"
+            },
+            "nullable": true
+          },
+          "averageResolutionTime": {
+            "type": "number",
+            "format": "double"
+          },
+          "resolutionRate": {
+            "type": "number",
+            "format": "double"
+          },
+          "casesRequiringAttention": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "overdueCases": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "upcomingHearings": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CaseStatisticsDtoServiceResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/CaseStatisticsDto"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CaseStatus": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "CaseType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "CaseTypeCountDto": {
+        "type": "object",
+        "properties": {
+          "caseType": {
+            "$ref": "#/components/schemas/CaseType"
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "percentage": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CaseUpdateDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "caseId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "updateType": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "oldValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "newValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdByName": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChangePasswordDto": {
+        "required": [
+          "confirmPassword",
+          "currentPassword",
+          "newPassword"
+        ],
+        "type": "object",
+        "properties": {
+          "currentPassword": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "newPassword": {
+            "maxLength": 100,
+            "minLength": 6,
+            "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,}$",
+            "type": "string"
+          },
+          "confirmPassword": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateCaseDto": {
+        "required": [
+          "caseType",
+          "complainantId",
+          "complainantName",
+          "complainantPhone",
+          "description",
+          "incidentDate",
+          "respondentId",
+          "respondentName",
+          "respondentPhone",
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "caseType": {
+            "$ref": "#/components/schemas/CaseType"
+          },
+          "title": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 2000,
+            "minLength": 0,
+            "type": "string"
+          },
+          "complainantId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "complainantName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "complainantPhone": {
+            "minLength": 1,
+            "type": "string",
+            "format": "tel"
+          },
+          "complainantEmail": {
+            "type": "string",
+            "format": "email",
+            "nullable": true
+          },
+          "respondentId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "respondentName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "respondentPhone": {
+            "minLength": 1,
+            "type": "string",
+            "format": "tel"
+          },
+          "respondentEmail": {
+            "type": "string",
+            "format": "email",
+            "nullable": true
+          },
+          "propertyId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "tenancyAgreementId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "propertyAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "incidentDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "claimAmount": {
+            "minimum": 0,
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "initialNote": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreatePropertyDto": {
+        "required": [
+          "address",
+          "city",
+          "landlordId",
+          "monthlyRent",
+          "propertyCode",
+          "propertyType",
+          "region"
+        ],
+        "type": "object",
+        "properties": {
+          "landlordId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "propertyCode": {
+            "maxLength": 20,
+            "minLength": 1,
+            "type": "string"
+          },
+          "propertyType": {
+            "$ref": "#/components/schemas/PropertyType"
+          },
+          "address": {
+            "maxLength": 500,
+            "minLength": 1,
+            "type": "string"
+          },
+          "ghanaPostGpsAddress": {
+            "maxLength": 100,
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "region": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "sizeInSqMeters": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "numberOfBedrooms": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "numberOfBathrooms": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "numberOfLivingRooms": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "numberOfKitchens": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "monthlyRent": {
+            "minimum": 0.01,
+            "type": "number",
+            "format": "double"
+          },
+          "isFurnished": {
+            "type": "boolean"
+          },
+          "hasParking": {
+            "type": "boolean"
+          },
+          "hasSecurity": {
+            "type": "boolean"
+          },
+          "hasWater": {
+            "type": "boolean"
+          },
+          "hasElectricity": {
+            "type": "boolean"
+          },
+          "description": {
+            "maxLength": 2000,
+            "type": "string",
+            "nullable": true
+          },
+          "additionalNotes": {
+            "maxLength": 1000,
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateRentAdjustmentDto": {
+        "type": "object",
+        "properties": {
+          "propertyId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "newRent": {
+            "type": "number",
+            "format": "double"
+          },
+          "effectiveDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "reason": {
+            "type": "string",
+            "nullable": true
+          },
+          "approvalReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "adjustmentType": {
+            "$ref": "#/components/schemas/RentAdjustmentType"
+          },
+          "isApproved": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateRentPaymentDto": {
+        "required": [
+          "amount",
+          "paymentMethod",
+          "periodEndDate",
+          "periodStartDate",
+          "tenancyAgreementId"
+        ],
+        "type": "object",
+        "properties": {
+          "tenancyAgreementId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "amount": {
+            "minimum": 0.01,
+            "type": "number",
+            "format": "double"
+          },
+          "paymentMethod": {
+            "$ref": "#/components/schemas/PaymentMethod"
+          },
+          "periodStartDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "periodEndDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isAdvancePayment": {
+            "type": "boolean"
+          },
+          "referenceNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateTenancyDto": {
+        "required": [
+          "endDate",
+          "landlordId",
+          "monthlyRent",
+          "paymentFrequency",
+          "propertyId",
+          "startDate",
+          "tenantId"
+        ],
+        "type": "object",
+        "properties": {
+          "propertyId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "landlordId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "tenantId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "monthlyRent": {
+            "minimum": 0.01,
+            "type": "number",
+            "format": "double"
+          },
+          "securityDeposit": {
+            "minimum": 0,
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "paymentFrequency": {
+            "$ref": "#/components/schemas/PaymentFrequency"
+          },
+          "leaseTermId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "noticePeriodId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "specialTerms": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DocumentEvidenceType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ForgotPasswordRequestDto": {
+        "required": [
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          }
+        },
+        "additionalProperties": false
+      },
+      "HearingCalendarDto": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "hearings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HearingCalendarItemDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HearingCalendarDtoServiceResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/HearingCalendarDto"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HearingCalendarItemDto": {
+        "type": "object",
+        "properties": {
+          "hearingId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "hearingNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "caseId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "caseNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "hearingDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "startTime": {
+            "type": "string",
+            "format": "date-span"
+          },
+          "endTime": {
+            "type": "string",
+            "format": "date-span"
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "virtualMeetingLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/HearingStatus"
+          },
+          "presidingOfficerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "complainantName": {
+            "type": "string",
+            "nullable": true
+          },
+          "respondentName": {
+            "type": "string",
+            "nullable": true
+          },
+          "isToday": {
+            "type": "boolean"
+          },
+          "isPast": {
+            "type": "boolean"
+          },
+          "isUpcoming": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "HearingParticipantDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "participantId": {
+            "type": "string",
+            "nullable": true
+          },
+          "participantName": {
+            "type": "string",
+            "nullable": true
+          },
+          "participantEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "participantPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "participantType": {
+            "$ref": "#/components/schemas/ParticipantType"
+          },
+          "role": {
+            "type": "string",
+            "nullable": true
+          },
+          "organization": {
+            "type": "string",
+            "nullable": true
+          },
+          "isRequired": {
+            "type": "boolean"
+          },
+          "hasConfirmedAttendance": {
+            "type": "boolean"
+          },
+          "attended": {
+            "type": "boolean"
+          },
+          "checkedInAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "checkedOutAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HearingResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "caseId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "hearingNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "hearingDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "startTime": {
+            "type": "string",
+            "format": "date-span"
+          },
+          "endTime": {
+            "type": "string",
+            "format": "date-span"
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "virtualMeetingLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/HearingStatus"
+          },
+          "presidingOfficerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "presidingOfficerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "clerkId": {
+            "type": "string",
+            "nullable": true
+          },
+          "clerkName": {
+            "type": "string",
+            "nullable": true
+          },
+          "outcome": {
+            "type": "string",
+            "nullable": true
+          },
+          "minutes": {
+            "type": "string",
+            "nullable": true
+          },
+          "minutesFilePath": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "case": {
+            "$ref": "#/components/schemas/CaseDto"
+          },
+          "participants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HearingParticipantDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HearingResponseDtoServiceResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/HearingResponseDto"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HearingStatus": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "IssueNoticeDto": {
+        "required": [
+          "effectiveDate",
+          "noticeType",
+          "reason"
+        ],
+        "type": "object",
+        "properties": {
+          "noticeType": {
+            "$ref": "#/components/schemas/NoticeType"
+          },
+          "effectiveDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "reason": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "additionalNotes": {
+            "maxLength": 1000,
+            "type": "string",
+            "nullable": true
+          },
+          "attachmentUrls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginRequestDto": {
+        "required": [
+          "ghanaCardNumber",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "ghanaCardNumber": {
+            "maxLength": 20,
+            "minLength": 0,
+            "type": "string"
+          },
+          "password": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MobileMoneyCallbackDto": {
+        "type": "object",
+        "properties": {
+          "transactionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "referenceNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "isSuccessful": {
+            "type": "boolean"
+          },
+          "failureReason": {
+            "type": "string",
+            "nullable": true
+          },
+          "transactionDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "provider": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MonthCountDto": {
+        "type": "object",
+        "properties": {
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "month": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NoticeType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ParticipantType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "PaymentFrequency": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "PaymentMethod": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "PaymentStatus": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "PriorityCountDto": {
+        "type": "object",
+        "properties": {
+          "priority": {
+            "$ref": "#/components/schemas/CasePriority"
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "percentage": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PropertyAmenityDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "isAvailable": {
+            "type": "boolean"
+          },
+          "additionalInfo": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PropertyDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "propertyCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "region": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PropertyStatus": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "PropertyType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "RefreshTokenRequestDto": {
+        "required": [
+          "refreshToken",
+          "token"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "refreshToken": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegisterRequestDto": {
+        "required": [
+          "confirmPassword",
+          "dateOfBirth",
+          "email",
+          "firstName",
+          "ghanaCardNumber",
+          "lastName",
+          "password",
+          "phoneNumber",
+          "role"
+        ],
+        "type": "object",
+        "properties": {
+          "ghanaCardNumber": {
+            "maxLength": 20,
+            "minLength": 15,
+            "pattern": "^GHA-\\d{9}-\\d$",
+            "type": "string"
+          },
+          "email": {
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "maxLength": 100,
+            "minLength": 6,
+            "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,}$",
+            "type": "string"
+          },
+          "confirmPassword": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "firstName": {
+            "maxLength": 50,
+            "minLength": 2,
+            "type": "string"
+          },
+          "lastName": {
+            "maxLength": 50,
+            "minLength": 2,
+            "type": "string"
+          },
+          "phoneNumber": {
+            "maxLength": 15,
+            "minLength": 10,
+            "type": "string",
+            "format": "tel"
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date"
+          },
+          "role": {
+            "minLength": 1,
+            "pattern": "^(Tenant|Landlord|RCD_Officer|Inspector|Admin)$",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RenewTenancyDto": {
+        "required": [
+          "newEndDate"
+        ],
+        "type": "object",
+        "properties": {
+          "newEndDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "newMonthlyRent": {
+            "minimum": 0.01,
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "renewalNotes": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RentAdjustmentType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ResetPasswordDto": {
+        "required": [
+          "confirmPassword",
+          "newPassword",
+          "token",
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "token": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "newPassword": {
+            "maxLength": 100,
+            "minLength": 6,
+            "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,}$",
+            "type": "string"
+          },
+          "confirmPassword": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResolutionType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ScheduleHearingDto": {
+        "required": [
+          "caseId",
+          "endTime",
+          "hearingDate",
+          "location",
+          "presidingOfficerId",
+          "presidingOfficerName",
+          "startTime",
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "caseId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "hearingDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "startTime": {
+            "type": "string",
+            "format": "date-span"
+          },
+          "endTime": {
+            "type": "string",
+            "format": "date-span"
+          },
+          "location": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "virtualMeetingLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "presidingOfficerId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "presidingOfficerName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "clerkId": {
+            "type": "string",
+            "nullable": true
+          },
+          "clerkName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TenancyAgreementDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "agreementNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "monthlyRent": {
+            "type": "number",
+            "format": "double"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TenancyStatus": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "TerminateTenancyDto": {
+        "required": [
+          "reason"
+        ],
+        "type": "object",
+        "properties": {
+          "reason": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "actualVacateDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateCaseDto": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "maxLength": 2000,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/CaseStatus"
+          },
+          "priority": {
+            "$ref": "#/components/schemas/CasePriority"
+          },
+          "claimAmount": {
+            "minimum": 0,
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "awardedAmount": {
+            "minimum": 0,
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "resolution": {
+            "$ref": "#/components/schemas/ResolutionType"
+          },
+          "resolutionDetails": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateHearingDto": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "hearingDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "startTime": {
+            "type": "string",
+            "format": "date-span",
+            "nullable": true
+          },
+          "endTime": {
+            "type": "string",
+            "format": "date-span",
+            "nullable": true
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "virtualMeetingLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/HearingStatus"
+          },
+          "presidingOfficerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "presidingOfficerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "clerkId": {
+            "type": "string",
+            "nullable": true
+          },
+          "clerkName": {
+            "type": "string",
+            "nullable": true
+          },
+          "outcome": {
+            "type": "string",
+            "nullable": true
+          },
+          "minutes": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateProfileDto": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "maxLength": 50,
+            "minLength": 2,
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "maxLength": 50,
+            "minLength": 2,
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "maxLength": 15,
+            "minLength": 10,
+            "type": "string",
+            "format": "tel",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "nullable": true
+          },
+          "address": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "region": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "postalCode": {
+            "maxLength": 20,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "emergencyContact": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "emergencyPhone": {
+            "maxLength": 15,
+            "minLength": 0,
+            "type": "string",
+            "format": "tel",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdatePropertyDto": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "maxLength": 500,
+            "type": "string",
+            "nullable": true
+          },
+          "ghanaPostGpsAddress": {
+            "maxLength": 100,
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "maxLength": 100,
+            "type": "string",
+            "nullable": true
+          },
+          "region": {
+            "maxLength": 100,
+            "type": "string",
+            "nullable": true
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "sizeInSqMeters": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "numberOfBedrooms": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "numberOfBathrooms": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "numberOfLivingRooms": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "numberOfKitchens": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "monthlyRent": {
+            "minimum": 0.01,
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "isFurnished": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "hasParking": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "hasSecurity": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "hasWater": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "hasElectricity": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "description": {
+            "maxLength": 2000,
+            "type": "string",
+            "nullable": true
+          },
+          "additionalNotes": {
+            "maxLength": 1000,
+            "type": "string",
+            "nullable": true
+          },
+          "propertyStatus": {
+            "$ref": "#/components/schemas/PropertyStatus"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateTenancyDto": {
+        "type": "object",
+        "properties": {
+          "monthlyRent": {
+            "minimum": 0.01,
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "securityDeposit": {
+            "minimum": 0,
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "paymentFrequency": {
+            "$ref": "#/components/schemas/PaymentFrequency"
+          },
+          "status": {
+            "$ref": "#/components/schemas/TenancyStatus"
+          },
+          "leaseTermId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "noticePeriodId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "terminationReason": {
+            "type": "string",
+            "nullable": true
+          },
+          "actualVacateDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "specialTerms": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateUserRolesDto": {
+        "required": [
+          "roles"
+        ],
+        "type": "object",
+        "properties": {
+          "roles": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "VerifyPaymentDto": {
+        "required": [
+          "paymentStatus",
+          "transactionId"
+        ],
+        "type": "object",
+        "properties": {
+          "transactionId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "paymentStatus": {
+            "$ref": "#/components/schemas/PaymentStatus"
+          },
+          "verificationNotes": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WeatherForecast": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "temperatureC": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "temperatureF": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "summary": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}
