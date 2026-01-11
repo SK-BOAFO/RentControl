@@ -6,16 +6,16 @@ WORKDIR /src
 
 # Cache NuGet packages - copy project files first
 COPY ["*.sln", "./"]
-COPY ["src/MyApp.WebApi/MyApp.WebApi.csproj", "src/MyApp.WebApi/"]
+COPY ["src/RentControl.WebApi/RentControl.WebApi.csproj", "src/RentControl.WebApi/"]
 # ... copy other .csproj files if you have multiple projects
 
 RUN dotnet restore "src/RentControl.WebApi/RentControl.WebApi.csproj"
 
 COPY . .
-WORKDIR "/src/src/MyApp.WebApi"
+WORKDIR "/src/src/RentControl.WebApi"
 
 # Publish - optimized for container
-RUN dotnet publish "MyApp.WebApi.csproj" -c Release -o /app/publish \
+RUN dotnet publish "RentControl.WebApi.csproj" -c Release -o /app/publish \
     --no-restore \
     -p:UseAppHost=false \
     -p:DebugType=None \
