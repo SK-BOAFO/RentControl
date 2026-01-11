@@ -1,47 +1,46 @@
 # =====================================
-# STAGE 1: Build
+# STAGE 1: Build & Publish
 # =====================================
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+
 WORKDIR /src
 
-# Cache NuGet packages - copy project files first
-COPY ["*.sln", "./"]
-COPY ["src/RentControl.WebApi/RentControl.WebApi.csproj", "src/RentControl.WebApi/"]
-# ... copy other .csproj files if you have multiple projects
+# Copy only the project file first (excellent NuGet caching)
+COPY ["RentControlSystem.csproj", "./"]
 
-RUN dotnet restore "src/RentControl.WebApi/RentControl.WebApi.csproj"
+# Restore dependencies
+RUN dotnet restore "RentControlSystem.csproj"
 
+# Copy everything else
 COPY . .
-WORKDIR "/src/src/RentControl.WebApi"
 
-# Publish - optimized for container
-RUN dotnet publish "RentControl.WebApi.csproj" -c Release -o /app/publish \
+# Publish optimized for production/container
+RUN dotnet publish "RentControlSystem.csproj" \
+    -c Release \
+    -o /app/publish \
     --no-restore \
     -p:UseAppHost=false \
     -p:DebugType=None \
     -p:DebugSymbols=false
 
 # =====================================
-# STAGE 2: Runtime - Production
+# STAGE 2: Runtime (small & secure)
 # =====================================
-FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 
-# Security: non-root user
-RUN addgroup --system --gid 1000 appgroup && \
-    adduser --system --uid 1000 --ingroup appgroup appuser
+# Create non-root user
+RUN adduser --disabled-password --gecos "" appuser
 
 WORKDIR /app
-COPY --from=build --chown=appuser:appgroup /app/publish .
+
+# Copy published files with correct ownership
+COPY --from=build --chown=appuser:appuser /app/publish .
 
 USER appuser
 
-# Modern cloud port convention (change to 10000 for Render, 80/443 for others)
-ENV ASPNETCORE_URLS=http://+:8080
+# Required for Render.com (port 10000)
+ENV ASPNETCORE_URLS=http://+:10000
 
-EXPOSE 8080
+EXPOSE 10000
 
-# Optional but recommended health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD curl --fail http://localhost:8080/health || exit 1
-
-ENTRYPOINT ["dotnet", "RentControl.WebApi.dll"]
+ENTRYPOINT ["dotnet", "RentControlSystem.dll"]
